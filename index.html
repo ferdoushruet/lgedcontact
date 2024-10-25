@@ -62,59 +62,61 @@
     </table>
 
     <script>
-fetch('http://pmis.lged.gov.bd/pmis-api/api/employee')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok ' + response.statusText);
-        }
-        return response.json();
-    })
-
-    .then(data => {
-        console.log(data); // Log data to check the fetched structure
-        const employeeTable = document.getElementById('employeeTable').getElementsByTagName('tbody')[0];
-        
-        // Check if the fetched data is a non-empty array
-        if (Array.isArray(data) && data.length > 0) {
-            data.forEach(employee => {
-                const row = employeeTable.insertRow();
-                            row.insertCell(0).innerText = employee.ID || '';
-                                    row.insertCell(1).innerText = employee.EMPNAMEENG || '';
-                                    row.insertCell(2).innerText = employee.EMPNAMEBAN || '';
-                                    row.insertCell(3).innerText = employee.CODE || '';
-                                    row.insertCell(4).innerText = employee.DATEOFBIRTH || '';
-                                    row.insertCell(5).innerText = employee.MOBILE || '';
-                                    row.insertCell(6).innerText = employee.FIRSTJOININGDATE || '';
-                                    row.insertCell(7).innerText = employee.JOBPERMANENTDATE || '';
-                                    row.insertCell(8).innerText = employee.EMAIL || '';
-                                    row.insertCell(9).innerText = employee.FATHERNAME || '';
-                                    row.insertCell(10).innerText = employee.MOTHERNAME || '';
-                                    row.insertCell(11).innerText = employee.BLOODGROUPID || '';
-                                    row.insertCell(12).innerText = employee.NATIONALID || '';
-                                    row.insertCell(13).innerText = employee.PICTURELOCATION || '';
-                                    row.insertCell(14).innerText = employee.RELIGION || '';
-                                    row.insertCell(15).innerText = employee.SEX || '';
-                                    row.insertCell(16).innerText = employee.FREEDOMFIGHTER || '';
-                                    row.insertCell(17).innerText = employee.EMPLOYEESTATUSID || '';
-                                    row.insertCell(18).innerText = employee.DESIGNATIONIDPMIS || '';
-                                    row.insertCell(19).innerText = employee.FULLDESIGNATION || '';
-                                    row.insertCell(20).innerText = employee.EMPDESIGNATIONBN || '';
-                                    row.insertCell(21).innerText = employee.DESIGNATIONMID || '';
-                                    row.insertCell(22).innerText = employee.OFFICEIDPMIS || '';
-                                    row.insertCell(23).innerText = employee.OFFICENAME || '';
-                                    row.insertCell(24).innerText = employee.OFFICESHORTNAME || '';
-                                    row.insertCell(25).innerText = employee.OFFICENAMEBANGLA || '';
-                                    row.insertCell(26).innerText = employee.OFFICETYPEIDPMIS || '';
-                                    row.insertCell(27).innerText = employee.OFFICETYPEMID || '';
-                                    row.insertCell(28).innerText = employee.UPAZILAMID || '';
-                                    row.insertCell(29).innerText = employee.DISTRICTMIS || '';
-                                    row.insertCell(30).innerText = employee.REGIONMID || '';
-                                    row.insertCell(31).innerText = employee.DIVISIONMID || '';
-                                });
-                            } else {
-                        console.log('No employee data available.');
-                    }
-                })
+    fetch('http://pmis.lged.gov.bd/pmis-api/api/employee')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data); // Log data to check the fetched structure
+            const employeeTable = document.getElementById('employeeTable').getElementsByTagName('tbody')[0];
+            
+            // Check if the fetched data is a non-empty array
+            if (Array.isArray(data) && data.length > 0) {
+                data.forEach(employee => {
+                    const row = employeeTable.insertRow();
+                    row.insertCell(0).innerText = employee.ID || '';
+                    row.insertCell(1).innerText = employee.EMPNAMEENG || '';
+                    row.insertCell(2).innerText = employee.EMPNAMEBAN || '';
+                    row.insertCell(3).innerText = employee.CODE || '';
+                    row.insertCell(4).innerText = employee.DATEOFBIRTH || '';
+                    row.insertCell(5).innerText = employee.MOBILE || '';
+                    row.insertCell(6).innerText = employee.FIRSTJOININGDATE || '';
+                    row.insertCell(7).innerText = employee.JOBPERMANENTDATE || '';
+                    row.insertCell(8).innerText = employee.EMAIL || '';
+                    row.insertCell(9).innerText = employee.FATHERNAME || '';
+                    row.insertCell(10).innerText = employee.MOTHERNAME || '';
+                    row.insertCell(11).innerText = employee.BLOODGROUPID || '';
+                    row.insertCell(12).innerText = employee.NATIONALID || '';
+                    row.insertCell(13).innerText = employee.PICTURELOCATION || '';
+                    row.insertCell(14).innerText = employee.RELIGION || '';
+                    row.insertCell(15).innerText = employee.SEX || '';
+                    row.insertCell(16).innerText = employee.FREEDOMFIGHTER || '';
+                    row.insertCell(17).innerText = employee.EMPLOYEESTATUSID || '';
+                    row.insertCell(18).innerText = employee.DESIGNATIONIDPMIS || '';
+                    row.insertCell(19).innerText = employee.FULLDESIGNATION || '';
+                    row.insertCell(20).innerText = employee.EMPDESIGNATIONBN || '';
+                    row.insertCell(21).innerText = employee.DESIGNATIONMID || '';
+                    row.insertCell(22).innerText = employee.OFFICEIDPMIS || '';
+                    row.insertCell(23).innerText = employee.OFFICENAME || '';
+                    row.insertCell(24).innerText = employee.OFFICESHORTNAME || '';
+                    row.insertCell(25).innerText = employee.OFFICENAMEBANGLA || '';
+                    row.insertCell(26).innerText = employee.OFFICETYPEIDPMIS || '';
+                    row.insertCell(27).innerText = employee.OFFICETYPEMID || '';
+                    row.insertCell(28).innerText = employee.UPAZILAMID || '';
+                    row.insertCell(29).innerText = employee.DISTRICTMIS || '';
+                    row.insertCell(30).innerText = employee.REGIONMID || '';
+                    row.insertCell(31).innerText = employee.DIVISIONMID || '';
+                });
+            } else {
+                console.log('No employee data available.');
+            }
+        })
+        .catch(error => {
+            console.error('Fetch error:', error);
+        });
     </script>
 </body>
 </html>
