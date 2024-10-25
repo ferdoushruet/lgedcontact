@@ -62,13 +62,14 @@
     </table>
 
     <script>
-fetch('https://banan.free.nf/fetch_employee_data.php')
+fetch('http://pmis.lged.gov.bd/pmis-api/api/employee')
     .then(response => {
         if (!response.ok) {
             throw new Error('Network response was not ok ' + response.statusText);
         }
         return response.json();
     })
+
     .then(data => {
         console.log(data); // Log data to check the fetched structure
         const employeeTable = document.getElementById('employeeTable').getElementsByTagName('tbody')[0];
